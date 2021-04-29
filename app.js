@@ -25,8 +25,10 @@ app.use('/products', productRoutes);
 app.use('/orders', ordersRoutes);
 
 mongoose.connect('mongodb+srv://node-shop:' + process.env.MONGO_ATLAS_PW + '@node-rest-shop.5mfpf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
-    useMongoClient: true
+    //useMongoClient: true
 });
+
+mongoose.Promise = global.Promise;
 
 app.use((req, res, next) => {
     const error = new Error('Not found');
