@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 
 const productRoutes = require("./api/routes/products");
 const ordersRoutes = require("./api/routes/orders");
+const userRoutes = require("./api/routes/user");
 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
@@ -24,6 +25,7 @@ app.use(bodyParser.json());
 
 app.use('/products', productRoutes);
 app.use('/orders', ordersRoutes);
+app.use('/user', userRoutes);
 
 mongoose.connect('mongodb+srv://node-shop:' + process.env.MONGO_ATLAS_PW + '@node-rest-shop.5mfpf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
     //useMongoClient: true
